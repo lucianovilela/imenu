@@ -8,3 +8,5 @@ tasks:
 ports:
   - port: 3000
     onOpen: open-preview
+  - port: 19002
+    onOpen: open-preview
