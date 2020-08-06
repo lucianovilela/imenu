@@ -5,66 +5,42 @@ import {
   StyleSheet,
   Button,
   TextInput,
-  Image
+  Image,
+  SafeAreaView,
+  TouchableOpacity,
 } from 'react-native';
-import Constants from 'expo-constants';
+
+import styles from './Styles';
+
+import Botao from '../components/Botao';
 
 const PageLogin = ({ navigation }) => {
   return (
-      <View style={styles.view}>
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.containerLogin}>
         <Image
-          style={styles.login}
+          style={styles.loginImg}
           source={require('../assets/user-image-with-black-background.png')}
         />
-        <TextInput style={styles.textField} placeholder="login" />
+        <TextInput style={styles.textInput} placeholder="email" />
         <TextInput
-          style={styles.textField}
-          placeholder="Senha"
+          style={styles.textInput}
+          placeholder="senha"
           secureTextEntry
         />
-
-        <Button
-          title="Login"
-          onPress={() => {
-            navigation.navigate('Cadastro de Menu');
-          }}
-        />
-        <Button
-          title="Facebook"
-          onPress={() => {
-            navigation.navigate('Cadastro de Menu');
-          }}
-        />
-        <Button
-          title="Google"
-          onPress={() => {
-            navigation.navigate('Cadastro de Menu');
-          }}
-        />
-
+        <Botao style={styles.buttonLogin} onPress={() => {
+            navigation.navigate('Cadastro_Menu');
+          }} title="Login"/>
+          
+        <Botao style={styles.buttonGoogle} onPress={() => {
+            navigation.navigate('Cadastro_Menu');
+          }} title="Google"/>
 
       </View>
+    </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#ecf0f1',
-    padding: 8,
-  },
-  login: {
-    height: 50,
-    width: 50,
-  },
-  textField: {
-    margin: 10,
-  },
-  view: { alignItems: 'center', justifyContent: 'center', flex: 1 },
-});
+
 
 export default PageLogin;
