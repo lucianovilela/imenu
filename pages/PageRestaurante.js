@@ -36,7 +36,8 @@ const MenuItemAction=({modalVisible, setModalVisible, setInfo, info, lista, setL
     <Modal
         animationType="slide"
         transparent={false}
-        visible={modalVisible}>
+        visible={modalVisible}
+        style={{display:modalVisible?"":"none"}}>
         
         <View>
           <Text>{modalVisible?"visivel":"invisivel"}</Text>
