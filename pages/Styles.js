@@ -35,7 +35,7 @@ export default StyleSheet.create({
     margin: 10,
     marginBottom: 0,
     padding: 10,
-    width: '50%',
+    width: '70%',
     alignItems: 'center',
     alignContent: 'center',
     alignSelf: 'center',

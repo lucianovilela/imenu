@@ -11,6 +11,9 @@ import styles from './Styles';
 
 import Botao from '../components/Botao';
 
+import PageLogin from "../pages/login/AuthScreen";
+
+
 
 const RestauranteScreen=({navigator})=> {
   return (
@@ -40,7 +43,6 @@ const MenuItemAction=({modalVisible, setModalVisible, setInfo, info, lista, setL
         style={{display:modalVisible?"":"none"}}>
         
         <View>
-          <Text>{modalVisible?"visivel":"invisivel"}</Text>
           <Text>Nome</Text>
           <TextInput style={styles.textInput} placeholder="nome" onChangeText={(text)=>setInfo({...info, nome:text})}/>
           <Text>Descrição</Text>
@@ -49,7 +51,7 @@ const MenuItemAction=({modalVisible, setModalVisible, setInfo, info, lista, setL
           <TextInput style={styles.textInput} placeholder="valor" onChangeText={(text)=>setInfo({...info, preco:text})} />
 
           <Botao title="salvar" onPress={()=>{lista.push(info); setLista([...lista]);
-          setModalVisible(false)}} styles={styles.buttonLogin}/>
+          setModalVisible(false)}} style={styles.buttonLogin}/>
         </View>
     </Modal>
 );
@@ -79,7 +81,7 @@ const MenuScreen=({navigator})=> {
             }}
             keyExtractor={item => item.id}
             />
-            <Botao title="novo item" styles={styles.buttonLogin}
+            <Botao title="novo item" style={styles.buttonLogin}
             onPress={()=>{
               setModalVisible(true);
             }} />
@@ -101,8 +103,8 @@ const PageRestaurante=({navigator})=> {
 
               if (route.name === 'Restaurante') {
                 iconName = focused
-                  ? 'restaurant'
-                  : 'restaurant';
+                  ? 'food'
+                  : 'food';
               } else if (route.name === 'Menu') {
                 iconName = focused ? 'ios-list-box' : 'ios-list';
               }
@@ -119,6 +121,7 @@ const PageRestaurante=({navigator})=> {
         >
           <Tab.Screen name="Restaurante" navigator component={RestauranteScreen} />
           <Tab.Screen name="Menu" component={MenuScreen} />
+          <Tab.Screen name="Login" component={PageLogin} />
           
 
         </Tab.Navigator>  
